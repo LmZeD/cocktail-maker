@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\CocktailController::class, 'index'])->name('index');
-Route::get('/mix/{cocktail}', [\App\Http\Controllers\CocktailController::class, 'mix'])->name('cocktail.mix');
-Route::get('/pump-mapping', [\App\Http\Controllers\CocktailController::class, 'showPumpMapping'])->name('cocktail.pump-mapping');
-Route::post('/map-pumps', [\App\Http\Controllers\CocktailController::class, 'mapPumps'])->name('cocktail.map-pumps');
+Route::get('/', function () {
+    return view('welcome');
+});

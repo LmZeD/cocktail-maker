@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPrioritiesToIngredientsInCocktail extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddPrioritiesToIngredientsInCocktail extends Migration
      */
     public function up()
     {
-        Schema::table('ingredient_in_cocktails', function (Blueprint $table) {
-            $table->integer('priority')->default(0)->after('amount_ml');
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -25,8 +27,6 @@ class AddPrioritiesToIngredientsInCocktail extends Migration
      */
     public function down()
     {
-        Schema::table('ingredient_in_cocktails', function (Blueprint $table) {
-            $table->dropColumn('priority');
-        });
+        Schema::dropIfExists('password_resets');
     }
 }
