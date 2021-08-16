@@ -99,6 +99,6 @@ class CocktailController extends Controller
             'pump_no' => 0,
         ]);
 
-        return redirect()->route('cocktail.pump-mapping');
+        return redirect()->route('index');
     }
 }
