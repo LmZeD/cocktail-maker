@@ -41,7 +41,7 @@ class ActivatePump extends Command
         $pumpId = (int)$this->argument('pumpId');
         $time = (int)$this->argument('time');
         $this->output->writeln("Starting pump $pumpId for $time ms");
-        exec(sprintf('python3 %s/activate-pump.py %d %d',escapeshellarg(base_path()), $pumpId, $time));
+        exec(sprintf('/usr/bin/python3 %s/activate-pump.py %d %d', escapeshellarg(base_path()), $pumpId, $time));
         $this->output->writeln('Finished');
     }
 }
