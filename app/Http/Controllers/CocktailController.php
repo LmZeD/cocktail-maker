@@ -53,7 +53,7 @@ class CocktailController extends Controller
             }
 
             $amountInTime = $amount/40;// todo cast to time
-            Artisan::call('pump:activate', ['pumpId' => $pumpNo, 'time' => $amountInTime]);
+            exec(sprintf('python3 activate-pump.py %d %d', (int)$pumpNo, (int)($amountInTime*1000)));
             $returnData['progress_elements'][] = [
                 'amount' => $amount,
                 'time' => $amountInTime,
