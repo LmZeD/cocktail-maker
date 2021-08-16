@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendCommandToPump;
 use App\Models\Cocktail;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
@@ -53,7 +54,7 @@ class CocktailController extends Controller
             }
 
             $amountInTime = $amount/40;// todo cast to time
-            Artisan::call('pump:activate', ['pumpId' => $pumpNo, 'time' => $amountInTime*1000]);
+            $this->dispatch(new SendCommandToPump($pumpNo, $amountInTime));
             $returnData['progress_elements'][] = [
                 'amount' => $amount,
                 'time' => $amountInTime,
