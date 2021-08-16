@@ -30,7 +30,7 @@ class Cocktail extends Model
         foreach ($this->ingredientsInCocktail as $ingredientInCocktail) {
             if (!$ingredientInCocktail->ingredient->is_active &&
                 $ingredientInCocktail->ingredient->getSwappable() === false &&
-                $ingredientInCocktail->ingredient->add_by_hand
+                !$ingredientInCocktail->add_by_hand
             ) {
                 return false;
             }
