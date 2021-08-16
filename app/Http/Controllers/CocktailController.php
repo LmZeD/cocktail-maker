@@ -6,7 +6,6 @@ use App\Jobs\SendCommandToPump;
 use App\Models\Cocktail;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
 
 class CocktailController extends Controller
 {
@@ -54,7 +53,7 @@ class CocktailController extends Controller
             }
 
             $amountInTime = $amount/40;// todo cast to time
-            $this->dispatch(new SendCommandToPump($pumpNo, $amountInTime));
+            dispatch(new SendCommandToPump($pumpNo, $amountInTime));
             $returnData['progress_elements'][] = [
                 'amount' => $amount,
                 'time' => $amountInTime,
