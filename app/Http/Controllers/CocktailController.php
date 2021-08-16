@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cocktail;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class CocktailController extends Controller
 {
@@ -31,7 +32,6 @@ class CocktailController extends Controller
             throw new \Exception('Can not make this cocktail with current supplies!');
         }
 
-        // @todo add call to arduino here; add a delay depending on the drink or a progress bar
         $returnData = [
             'cocktail' => $cocktail
         ];
@@ -52,7 +52,8 @@ class CocktailController extends Controller
                 }
             }
 
-            $amountInTime = $amount/20;// todo cast to time
+            $amountInTime = $amount/40;// todo cast to time
+            Artisan::call('pump:activate', ['pumpId' => $pumpNo, 'time' => $amountInTime]);
             $returnData['progress_elements'][] = [
                 'amount' => $amount,
                 'time' => $amountInTime,

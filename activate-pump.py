@@ -1,6 +1,6 @@
 import bluetooth, sys
 
-addr = "98:D3:71:F9:CF:2E"
+addr = "98:D3:71:F9:CF:2E" #BT device MAC address
 
 try:
     conn = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
