@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeders;
-
 use App\Models\Cocktail;
 use App\Models\Ingredient;
 use App\Models\IngredientInCocktail;
