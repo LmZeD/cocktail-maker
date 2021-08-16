@@ -37,6 +37,7 @@ class ActivatePump extends Command
      */
     public function handle()
     {
+        touch('test'.microtime(true));
         $pumpId = (int)$this->argument('pumpId');
         $time = (int)$this->argument('time');
         $this->output->writeln("Starting pump $pumpId for $time ms");
