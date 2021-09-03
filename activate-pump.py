@@ -10,6 +10,7 @@ except bluetooth.btcommon.BluetoothError as err:
     pass
 
 def activatePump(pumpNo, time):
+    # should follow pump_no:5_digit_time_in_ms - 1:00900
     conn.send("|"+pumpNo+":"+time+"|")
 
 if __name__ == "__main__":

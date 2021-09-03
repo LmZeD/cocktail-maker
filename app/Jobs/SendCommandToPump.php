@@ -18,6 +18,8 @@ class SendCommandToPump implements ShouldQueue
 
     /**
      * Create a new job instance.
+     * @param int $pumpId pump id
+     * @param float $time amount of time in seconds
      *
      * @return void
      */

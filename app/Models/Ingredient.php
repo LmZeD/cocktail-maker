@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingredient extends Model
 {
+    const CLEAN_UP_TIME = 1;// in seconds
+    const ML_PER_SECOND = 30;
+
+    /**
+     * Pump: 1s = 30ml (+-2ml)
+     */
+
 
     protected $fillable = [
         'name',

@@ -8,7 +8,7 @@
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="mt-8 bg-transparent overflow-hidden shadow sm:rounded-lg">
 
-                    <div class="grid grid-cols-1" style="display: none" id="progress-card">
+                    <div class="grid grid-cols-2" style="display: none" id="progress-card">
                         <div class="p-6 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg mt-2 ml-2">
                             <div class="flex items-center justify-center">
                                 <h3 class="flex items-center text-gray-200">{{ ($loaderData['cocktail']->name ?? '') . __(' Making In Progress...') }}</h3>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1">
+                    <div class="grid grid-cols-2 md:grid-cols-2">
                         <div class="p-6 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg mt-2 ml-2">
                             <div class="flex items-center justify-center">
                                 <h3 class="flex items-center text-gray-200">{{ __('Map pumps') }}</h3>
@@ -34,12 +34,42 @@
                             <div class="flex justify-center">
                                 <div class="mt-8 text-gray-600 dark:text-gray-400 text-sm text-center">
                                     <a href="{{ route('cocktail.pump-mapping') }}" class="mt-2" style="border: 1px dashed; border-radius: 5px; padding: 4px 16px; background-color: #4a5568;">
-                                        <b>{{__('Mapping')}}</b>
+                                        <b>{{__('Open')}}</b>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg mt-2 ml-2">
+                            <div class="flex items-center justify-center">
+                                <h3 class="flex items-center text-gray-200">{{ __('Clean up') }}</h3>
+                            </div>
+                            <div class="flex justify-center">
+                                <div class="mt-8 text-gray-600 dark:text-gray-400 text-sm text-center">
+                                    <a href="{{ route('cocktail.clean-up-pumps') }}" class="mt-2" style="border: 1px dashed; border-radius: 5px; padding: 4px 16px; background-color: #4a5568;">
+                                        <b>{{__('Open')}}</b>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="grid grid-cols-1">
+                        <div class="p-6 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg mt-2 ml-2">
+                            <div class="flex items-center justify-center">
+                                <h3 class="flex items-center text-gray-200">{{ __('Make custom cocktail') }}</h3>
+                            </div>
+                            <div class="flex justify-center">
+                                <div class="mt-8 text-gray-600 dark:text-gray-400 text-sm text-center">
+                                    <a href="{{ route('cocktail.show-custom-cocktail') }}" class="mt-2" style="border: 1px dashed; border-radius: 5px; padding: 4px 16px; background-color: #4a5568;">
+                                        <b>{{__('Open')}}</b>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
 
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         @foreach($cocktails as $cocktail)
